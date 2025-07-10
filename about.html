@@ -86,16 +86,76 @@ content:"";
 display:block;
 clear:both;
 }
-#footer-div{
-display:flex;
-flex-direction:row;
-width:100%;
-min-height:200px;
-background-color:darkgrey;
-margin-top:10px;
-justify-content:center;
-align-items:center
-}
+	  .footer {
+      background-color: grey;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .footer h3 {
+      border-bottom: 2px solid #00aaff;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .footer a {
+      display: block;
+      color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #00aaff;
+    }
+
+    .footer .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .footer .subscribe input[type="email"] {
+      padding: 10px;
+      width: 70%;
+      border: none;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .footer .subscribe button {
+      padding: 10px 20px;
+      border: none;
+      background-color: lightgrey;
+      cursor: pointer;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 20px;
+      background-color: red;
+      color: #888;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-column {
+        margin: 10px 0;
+      }
+    }
 #wrapper-div{
 width:100%;
 margin:auto;
@@ -155,7 +215,7 @@ margin:auto;
 <h4 style="color:maroon;"><b>LINKED COUNTRIES</b></h4>
 <b>
 <p>Uganda</p><p> Ethiopia</p><p> Tanzania</p><p> Eritrea</p><p> Somalia</p><p> Djibouti</p> 
-<p>South Africa</p><p>Gabon</p><p>China</p>><p>Singapore</p><p>Dubai</p><p>Brazil</p>
+<p>South Africa</p><p>Gabon</p><p>China</p><p>Singapore</p><p>Dubai</p><p>Brazil</p>
 </b>
 </div>
 <div id="bodyarea-div">
@@ -175,14 +235,43 @@ margin:auto;
 <img src="pk.webp"  width="400px" height="80%"></img>
 <img src="634e68b909fb7276a25d6518-network-tool-kit-set-of-17-ethernet.jpg" width="400px" height="80%"></img>
 </p>
-<div id="footer-div">
-<footer>
-<p><b><i>contact us through admin Phone no: 0703394298</i></b>
-<b><i><a href="www.facebook.com">Facebook</a>
-<b><i><a href="www.twitter.com">Twitter</a>
-<b><i><a href="www.instagram.com">instagram</a></p>
-</footer>
-</div>
+<footer class="footer">
+    <div class="footer-column">
+      <h3>Company</h3>
+      <p>Nakuru 
+        Kericho
+        <p>City, State, ZIP</p>
+      <p>Email: info@GreenTech.com </p><p>Narok</p>Nanyuki
+	  <p>Kisumu</p>
+	  <p>Thika</p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <th width="200"><a href="index.html">HOME PAGE</a></th>
+<th width="200"><a href="about.html">ABOUT PAGE</a></th>
+<th width="200"><a href="booking.html">BOOKING</a></th>
+<th width="200"><a href="admin.html">CONTACT US</a></th>
+    </div>
+
+    <div class="footer-column">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">🌐</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="LinkedIn">💼</a>
+        <a href="#" aria-label="Instagram">📸</a>
+      </div>
+    </div>
+
+    <div class="footer-column subscribe">
+      <h3>Subscribe</h3>
+      <form action="#">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </footer>
 </div>
 </body>
 </html>

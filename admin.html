@@ -17,12 +17,10 @@ padding-left:20px;
 padding-right:20px;
 }
 #logo-nav-div{
-	 position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-width:100%;
-height:100px;
+position: fixed;
+top:0;
+width:98.8%;
+height:80px;
 margin-bottom:50px;
 }
 #logo-div{
@@ -46,7 +44,7 @@ clear:both;
 display:flex;
 flex-direction:row;
 width:100%;
-min-height:50px;
+min-height:300px;
 background-color:lightgray;
 margin-top:10px;
  margin-bottom:10px;
@@ -61,7 +59,7 @@ margin-bottom:5px;
 #main-div .box{
 width:32%;
 min-height:150px;
-background-color:pink;
+background-color:white;
 float:left;
 text-align:center;
 line-height:200px;
@@ -70,16 +68,76 @@ line-height:200px;
 margin-left:2%;
 margin-right:2%;
 }
-#footer-div{
-display:flex;
-flex-direction:row;
-width:100%;
-min-height:200px;
-background-color:darkgrey;
-margin-top:10px;
-justify-content:center;
-align-items:center
-}
+	  .footer {
+      background-color: grey;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .footer h3 {
+      border-bottom: 2px solid #00aaff;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .footer a {
+      display: block;
+      color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #00aaff;
+    }
+
+    .footer .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .footer .subscribe input[type="email"] {
+      padding: 10px;
+      width: 70%;
+      border: none;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .footer .subscribe button {
+      padding: 10px 20px;
+      border: none;
+      background-color: lightgrey;
+      cursor: pointer;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 20px;
+      background-color: red;
+      color: #888;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-column {
+        margin: 10px 0;
+      }
+    }
 #sub-div{
 width:100%;
 min-height:300px;
@@ -102,13 +160,12 @@ margin-bottom:10px;
 <div align="right">
 <table border="0">
 <tr>
- <th width="200"><a href="index.html">HOME PAGE</a></th>
+ <th width="200"><a href="index.html"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th></a></th>
 <th width="200"><a href="about.html">ABOUT PAGE</a></th>
 <th width="200"><a href="booking.html">BOOKING</a></th>
 <th width="200"><a href="admin.html">CONTACT US</a></th>
-</table>
+</tr>
 </div align>
-</table>
 </table>
 </div>
 </div>
@@ -202,11 +259,42 @@ margin-bottom:10px;
 <img src="IMG20250306171655.jpg" width="100%" height="400px"></img>
 </div>
 </div>
-<div id="footer-div">
-<p><b><i>contact us through phn no: 0703394298</i></b>
-<b><i><a href="www.facebook.com">Facebook</a>
-<b><i><a href="www.twitter.com">Twitter</a>
-<b><i><a href="www.instagram.com">instagram</a></p>
-</div>
+<footer class="footer">
+    <div class="footer-column">
+      <h3>Company</h3>
+      <p>Nakuru 
+        Kericho
+        <p>City, State, ZIP</p>
+      <p>Email: info@GreenTech.com </p><p>Narok</p>Nanyuki
+	  <p>Kisumu</p>
+	  <p>Thika</p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <th width="200"><a href="index.html">HOME PAGE</a></th>
+<th width="200"><a href="about.html">ABOUT PAGE</a></th>
+<th width="200"><a href="booking.html">BOOKING</a></th>
+<th width="200"><a href="admin.html">CONTACT US</a></th>
+    </div>
+
+    <div class="footer-column">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">🌐</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="LinkedIn">💼</a>
+        <a href="#" aria-label="Instagram">📸</a>
+      </div>
+    </div>
+
+    <div class="footer-column subscribe">
+      <h3>Subscribe</h3>
+      <form action="#">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </footer>
 </body>
 </html>
