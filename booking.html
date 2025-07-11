@@ -233,7 +233,15 @@ clear:both;
         <button class="btn btn-buy">Buy Now</button>
       </div>
     </div>
+<script>
+    const colors = ["red", "blue", "green", "purple", "orange"];
+    let index = 0;
 
+    setInterval(() => {
+      document.body.style.backgroundColor = colors[index];
+      index = (index + 1) % colors.length;
+    }, 2000); // Change every 2 seconds
+  </script>
     <div class="product-card">
       <img src="stock-vector-network-cable-tester-vector-illustration-isolated-in-white-back-ground-1901502643.jpg" class="product-image" alt="Product 2" />
       <div class="product-title">cable tester</div>
