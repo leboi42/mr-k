@@ -45,11 +45,21 @@ clear:both;
     .header {
       text-align: center;
       padding: 20px;
-      background-color: #222;
-      color: white;
+	  min-height:150px;
+	  margin-top:100px;
+      background-color: white;
+      color: red;
       font-size: 24px;
     }
-
+.table3 {
+        margin: 10px 0;
+       }
+        .table3 a {
+           color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+        }
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -209,7 +219,7 @@ clear:both;
 </div>
 <div id="nav-div">
 <div align="right">
-<table border="0">
+<table class="table3">
 <tr>
  <th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
 <th width="200"><a href="about.html">ABOUT US</a></th>
@@ -221,7 +231,7 @@ clear:both;
 </div>
 </div>
 </div>
- <div class="header">BOOKING & PURCHASING THROUGH ONLINE</div>
+ <div class="header" style="color:brown"><h1>BOOKING & PURCHASING THROUGH ONLINE</h1></div>
 
   <div class="products">
     <div class="product-card">
@@ -234,7 +244,7 @@ clear:both;
       </div>
     </div>
 <script>
-    const colors = ["red", "blue", "green", "purple", "orange"];
+    const colors = ["aqua", "pink", "lightblue", "violet", "lightgreen"];
     let index = 0;
 
     setInterval(() => {
@@ -324,7 +334,7 @@ clear:both;
   </div>
   <footer class="footer">
     <div class="footer-column">
-      <h3>Company</h3>
+      <h3>branches</h3>
       <p>Nakuru 
         Kericho
         <p>City, State, ZIP</p>
@@ -359,5 +369,6 @@ clear:both;
       </form>
     </div>
   </footer>
+ <center> Design by <h3 style="color: brown;"><i>Kinne John Leboi</i></h3><b>0703394298</b></center>
 </body>
 </html>

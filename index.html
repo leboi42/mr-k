@@ -25,7 +25,7 @@ position: fixed;
 position:top;
 display:flex;
 flex-direction:row;
-width:95.4%;
+width:100%;
 min-height:50px;
 background-color:lightgray;
 align-items:center;
@@ -35,9 +35,10 @@ padding-left:2px;
 #nav-div{
 position: fixed;
       left: 2;
+      right:2;
 display:flex;
 flex-direction:row;
-width:95.55%;
+width:100%;
 min-height:20px;
 background-color:lightgray;
 margin-top:20px;
@@ -45,15 +46,24 @@ justify-content:right;
 align-items:left;
 }
 #header-banner-div{
+position:fixed;
 display:flex;
 flex-direction:row;
 width:100%;
-min-height:350px;
-background-color:lightblue;
-margin-top:100px;
+min-height:210px;
+background-color:transparent;
+margin-top:0px;
  margin-bottom:0px;
 justify-content:center;
-align-items:center;
+align-items:flex-end;
+}
+.kichwa{
+  color: brown;
+  
+
+}
+.kichwa1{
+  background-color: whitesmoke;
 }
 #main-div{
 background-image: url('R.jpg'); /* Replace with your image path or URL */
@@ -68,28 +78,13 @@ flex-direction:row;
 width:100%;
 min-height:100px;
 margin-top:0px;
-justify-content:unset;
-}
-#Sidebar-div{
-display:flex;
-flex-direction:row;
-flex-basis:20%;
-min-height:100px;
 justify-content:center;
-align-items:center;
-}
-#Bodyarea-div{
-display:flex;
-flex-direction:row;
-flex-basis:75%;
-min-height:110px;
-justify-cont0nt:center;
 align-items:center;
 }
 #sub-div{
 width:100%;
 min-height:300px;
-background-color:violet;
+background-color:whitesmoke;
 text-align:center;
 line-height:50px;
 margin-top:10px;
@@ -113,17 +108,22 @@ margin-bottom:10px;
       font-family: Arial, sans-serif;
       margin: 30px;
     }
-    table {
+    .table1 {
       width: 100%;
       border-collapse: collapse;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    th, td {
+    .th1{
       border: 1px solid #ddd;
       padding: 12px;
       text-align: left;
     }
-    th {
+    .td1 {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    .th1 {
       background-color: #cccccc;
       color: white;
     }
@@ -162,7 +162,26 @@ margin-bottom:10px;
       margin-bottom: 10px;
       transition: color 0.3s ease;
     }
-
+       .table3 {
+        margin: 10px 0;
+       }
+        .table3 a {
+           color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+        }
+      
+        .signup {
+        margin: 0px 0;
+        margin-left: 80%;
+       }
+        .signup a {
+           color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+        }
     .footer a:hover {
       color: #00aaff;
     }
@@ -205,16 +224,15 @@ margin-bottom:10px;
         margin: 10px 0;
       }
     }
-}
 </style>
 <body>
 <div id="logo-div">
 <img src="new103.jpg" width="150px" height="60px"></img></img>
 </div>
 <div id="nav-div">
-<div align="right">
-<h3><i><b><a href="welcome.html">Sign up</b></a></i></h3>
-<table border="0">
+<div align="left">
+<p class="signup"><a href="welcome.html"><i>Sign up</i></a></p>
+<table class="table3" border="0" >
 <tr>
 <th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
 <th width="200"><a href="about.html">ABOUT US</a></th>
@@ -225,88 +243,84 @@ margin-bottom:10px;
 </table>
 </div>
 <div id="header-banner-div">
-<h1 style="color:red"><i>WELCOME TO GREENTECH NETWEB</i></h1>
+<h1 class="kichwa1" style="color: rebeccapurple"><i>WELCOME MY DEAR LEARNED FRIEND</i></h1>
 <script>
     const blinkText = document.getElementById('header-banner-div');
     setInterval(() => {
       blinkText.style.visibility = (blinkText.style.visibility === 'hidden') ? 'visible' : 'hidden';
-    }, 600); // Change every 500ms (half a second)
+    }, 1900); // Change every 1900ms (half a second)
   </script>
 </div>
 <div id="main-div">
-<div id="Sidebar-div">
-
-</div>
-<div id="Bodyarea-div">
-
+<h1 class="kichwa">NETWORKING</h1>
 </div>
 </div>
 <div id="sub-div">
-<h1 style="background-color:white;"><i><b>Our goods & services delivery are readily available</b></i></h1>
-  <table>
+<h1 style="background-color:aquamarine;"><i><b>Our goods & services delivery are readily available</b></i></h1>
+  <table class="table1">
     <caption>Networking Tools and Equipment List</caption>
     <thead>
       <tr>
-        <th>Category</th>
-        <th>Tool/Equipment</th>
-        <th>Description</th>
-        <th>Use Case</th>
+        <th class="th1">Category</th>
+        <th class="th1">Tool/Equipment</th>
+        <th class="th1">Description</th>
+        <th class="th1">Use Case</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Testing Tool</td>
-        <td>Cable Tester</td>
-        <td>Checks the integrity of network cables (Ethernet, coax, etc.)</td>
-        <td>Verifying wiring and diagnosing cable faults</td>
+        <td class="td1">Testing Tool</td>
+        <td class="td1">Cable Tester</td>
+        <td class="td1">Checks the integrity of network cables (Ethernet, coax, etc.)</td>
+        <td class="td1">Verifying wiring and diagnosing cable faults</td>
       </tr>
       <tr>
-        <td>Installation Tool</td>
-        <td>Crimping Tool</td>
-        <td>Attaches connectors (e.g., RJ-45) to cables</td>
-        <td>Custom cable creation</td>
+        <td class="td1">Installation Tool</td>
+        <td class="td1">Crimping Tool</td>
+        <td class="td1">Attaches connectors (e.g., RJ-45) to cables</td>
+        <td class="td1">Custom cable creation</td>
       </tr>
       <tr>
-        <td>Measuring Tool</td>
-        <td>Network Analyzer</td>
-        <td>Analyzes network traffic and performance</td>
-        <td>Troubleshooting bandwidth and packet issues</td>
+        <td class="td1">Measuring Tool</td>
+        <td class="td1">Network Analyzer</td>
+        <td class="td1">Analyzes network traffic and performance</td>
+        <td class="td1">Troubleshooting bandwidth and packet issues</td>
       </tr>
       <tr>
-        <td>Hardware</td>
-        <td>Router</td>
-        <td>Forwards data packets between networks</td>
-        <td>Internet access and routing internal traffic</td>
+        <td class="td1">Hardware</td>
+        <td class="td1">Router</td>
+        <td class="td1">Forwards data packets between networks</td>
+        <td class="td1">Internet access and routing internal traffic</td>
       </tr>
       <tr>
-        <td>Hardware</td>
-        <td>Switch</td>
-        <td>Connects multiple devices within a LAN</td>
-        <td>Efficient local communication</td>
+        <td class="td1">Hardware</td>
+        <td class="td1">Switch</td>
+        <td class="td1">Connects multiple devices within a LAN</td>
+        <td class="td1">Efficient local communication</td>
       </tr>
       <tr>
-        <td>Hardware</td>
-        <td>Firewall</td>
-        <td>Monitors and controls incoming/outgoing network traffic</td>
-        <td>Security against unauthorized access</td>
+        <td class="td1">Hardware</td>
+        <td class="td1">Firewall</td>
+        <td class="td1">Monitors and controls incoming/outgoing network traffic</td>
+        <td class="td1">Security against unauthorized access</td>
       </tr>
       <tr>
-        <td>Maintenance Tool</td>
-        <td>Punch Down Tool</td>
-        <td>Secures wire into patch panels and keystone jacks</td>
-        <td>Structured cabling setups</td>
+        <td class="td1">Maintenance Tool</td>
+        <td class="td1">Punch Down Tool</td>
+        <td class="td1">Secures wire into patch panels and keystone jacks</td>
+        <td class="td1">Structured cabling setups</td>
       </tr>
       <tr>
-        <td>Monitoring Tool</td>
-        <td>Network Monitoring Software</td>
-        <td>Provides real-time visibility of network health</td>
-        <td>Proactive maintenance and alerting</td>
+        <td class="td1">Monitoring Tool</td>
+        <td class="td1">Network Monitoring Software</td>
+        <td class="td1">Provides real-time visibility of network health</td>
+        <td class="td1">Proactive maintenance and alerting</td>
       </tr>
     </tbody>
   </table>
 </div>
 <div id="sub-div">
-<h1 style="background-color:pink;"><i><b>clients can submit their questions.We are here for you</b></i><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-400h80v-120h120v-80H520v-120h-80v120H320v80h120v120ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg></h1>
+<h1 style="background-color:aquamarine;"><i><b>clients can submit their questions.We are here for you</b></i><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-400h80v-120h120v-80H520v-120h-80v120H320v80h120v120ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg></h1>
 <br>
 <form action="#" Method="POST">
 <p>
@@ -320,7 +334,7 @@ margin-bottom:10px;
 </div>
 <footer class="footer">
     <div class="footer-column">
-      <h3>Company</h3>
+      <h3>branches</h3>
       <p>Nakuru 
         Kericho
         <p>City, State, ZIP</p>

@@ -17,10 +17,11 @@ padding-left:20px;
 padding-right:20px;
 }
 #logo-nav-div{
-position: fixed;
+position:fixed;
 top:0;
-width:98.8%;
-height:80px;
+left:2;
+width:100%;
+height:100px;
 margin-bottom:50px;
 }
 #logo-div{
@@ -44,12 +45,20 @@ clear:both;
 display:flex;
 flex-direction:row;
 width:100%;
-min-height:300px;
+min-height:150px;
 background-color:lightgray;
 margin-top:10px;
  margin-bottom:10px;
 justify-content:center;
-align-items:center;
+align-items:flex-end;
+}
+#intro-div{
+width:100%;
+min-height:80px;
+background-color: antiquewhite;
+line-height:50px;
+text-align:center;
+margin-bottom:2px;
 }
 #main-div{
 width:100%;
@@ -68,6 +77,15 @@ line-height:200px;
 margin-left:2%;
 margin-right:2%;
 }
+.table3 {
+        margin: 10px 0;
+       }
+        .table3 a {
+           color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+        }
 	  .footer {
       background-color: grey;
       padding: 40px 20px;
@@ -100,6 +118,9 @@ margin-right:2%;
       color: #00aaff;
     }
 
+    .branch a {
+      text-decoration: none;
+    }
     .footer .social-icons a {
       display: inline-block;
       margin-right: 10px;
@@ -141,7 +162,7 @@ margin-right:2%;
 #sub-div{
 width:100%;
 min-height:300px;
-background-color:violet;
+background-color:antiquewhite;
 text-align:center;
 line-height:50px;
 margin-top:10px;
@@ -158,13 +179,13 @@ margin-bottom:10px;
 </div>
 <div id="nav-div">
 <div align="right">
-<table border="0">
+<table class="table3">
 <tr>
- <th width="200"><a href="index.html"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th></a></th>
-<th width="200"><a href="about.html">ABOUT PAGE</a></th>
+ <th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
+<th width="200"><a href="about.html">ABOUT US</a></th>
 <th width="200"><a href="booking.html">BOOKING</a></th>
 <th width="200"><a href="admin.html">CONTACT US</a></th>
-</tr>
+</table>
 </div align>
 </table>
 </div>
@@ -172,6 +193,11 @@ margin-bottom:10px;
 </div>
 <div id="header-banner-div">
 <h1 style="color:red;">Contact us through:</h1>
+</div>
+<div id="intro-div">
+  <p class="branch">Our headquarter is in <b> Nairobi</b> along Thika super-highway(sub_branches- <a href="branches.html">Branches</a>)
+</p>
+<p>we offer goods and services to our clients across the country</p> 
 </div>
 <div id="sub-div">
 <br>
@@ -188,66 +214,72 @@ margin-bottom:10px;
 </div>
 <div id="sub-div">
   <style>
-    table {
+    .table1{
       width: 60%;
       border-collapse: collapse;
       margin: 20px auto;
       font-family: Arial, sans-serif;
     }
-    th, td {
+    .th1{
       border: 1px solid #cccccc;
       padding: 10px;
       text-align: center;
     }
-    th {
+    .th1 {
       background-color: #f2f2f2;
     }
     caption {
       font-size: 1.5em;
       margin: 10px;
     }
+    .td1{
+     border: 1px solid #cccccc;
+      padding: 10px;
+      text-align: center; 
+    }
   </style>
 </head>
 <body>
 
-  <table>
+  <table class="table1" style="background-color: aquamarine;">
     <caption>Networking Equipment Price List</caption>
     <thead>
       <tr>
-        <th>Item</th>
-        <th>Description</th>
-        <th>Price (USD)</th>
+        <th class="th1">Item</th>
+        <th class="th1">Description</th>
+        <th class="th1">Price (USD)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Router</td>
-        <td>Dual-band Wi-Fi 6 router</td>
-        <td>$89.99</td>
+        <td class="td1">Router</td>
+        <td class="td1">Dual-band Wi-Fi 6 router</td>
+        <td class="td1">$89.99</td>
       </tr>
       <tr>
-        <td>Switch</td>
-        <td>8-Port Gigabit Ethernet Switch</td>
-        <td>$34.50</td>
+        <td class="td1">Switch</td>
+        <td class="td1">8-Port Gigabit Ethernet Switch</td>
+        <td class="td1">$34.50</td>
       </tr>
       <tr>
-        <td>Access Point</td>
-        <td>Wireless Access Point (Ubiquiti)</td>
-        <td>$129.00</td>
+        <td class="td1">Access Point</td>
+        <td class="td1">Wireless Access Point (Ubiquiti)</td>
+        <td class="td1">$129.00</td>
       </tr>
       <tr>
-        <td>Patch Cable</td>
-        <td>Cat6 3ft Ethernet Cable (Pack of 5)</td>
-        <td>$12.99</td>
+        <td class="td1">Patch Cable</td>
+        <td class="td1">Cat6 3ft Ethernet Cable (Pack of 5)</td>
+        <td class="td1">$12.99</td>
       </tr>
       <tr>
-        <td>Firewall Appliance</td>
-        <td>Small business firewall security device</td>
-        <td>$219.99</td>
+        <td class="td1">Firewall Appliance</td>
+        <td class="td1">Small business firewall security device</td>
+        <td class="td1">$219.99</td>
       </tr>
     </tbody>
   </table>
 </div>
+<h2 style="color:purple;"><center>ICT EXPERTS</center></h2>
 <div id="main-div" class="box 1">
 <div class="box">
 <img src="IMG20250313131921 (1) (1).jpg" width="100%" height="400px"></img>
@@ -261,7 +293,7 @@ margin-bottom:10px;
 </div>
 <footer class="footer">
     <div class="footer-column">
-      <h3>Company</h3>
+      <h3>branches</h3>
       <p>Nakuru 
         Kericho
         <p>City, State, ZIP</p>

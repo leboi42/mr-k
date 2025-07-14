@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-"equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Login/Registration Page</title>
     <!-- Importing Poppins font from Google Fonts for a modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -315,15 +314,10 @@
             .container.login-mode .login-form-content {
                 display: block; /* Show login form on mobile when in login mode */
             }
-            #nav-div{
-width:100%;
-background-color:grey;
-min-height:100px;
-line-height:50px;
-}
         }
     </style>
-<body>
+</head>
+<body style="background-color: aquamarine;">
     <div class="container" id="mainContainer">
         <!-- Form Side: Contains both Registration and Login forms -->
         <div class="form-side" id="formSide">
@@ -361,7 +355,7 @@ line-height:50px;
                     <div class="input-group">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Username" required>
-''                    </div>
+                    </div>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" required>
@@ -377,7 +371,8 @@ line-height:50px;
 
         <!-- Login Panel: Appears when in registration mode -->
         <div class="panel login-panel" id="loginPanel">
-            <h2><th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th></h2>
+            <h2 id="blink12">Welcome Back!</h2>
+            <p><th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th></p>
             <p>To keep connected with us please login with your personal info</p>
             <button type="button" class="btn toggle-btn" id="loginToggleButton">Login</button>
         </div>
@@ -471,5 +466,11 @@ line-height:50px;
             });
         });
     </script>
+    <script>
+    const blinkText = document.getElementById('blink12');
+    setInterval(() => {
+      blinkText.style.visibility = (blinkText.style.visibility === 'hidden') ? 'visible' : 'hidden';
+    }, 500); // Change every 500ms (half a second)
+  </script>
 </body>
 </html>

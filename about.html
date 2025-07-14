@@ -19,7 +19,10 @@ font-family: 'open sans',
 sans-serif;
 position:right;
 }
-#logo-nav-div{
+  #logo-nav-div{
+position:fixed;
+top:0;
+left:2;
 width:100%;
 height:100px;
 margin-bottom:50px;
@@ -42,17 +45,20 @@ display:block;
 clear:both;
 }
 #header-banner-div{
+display:flex;
+flex-direction:row;
 width:100%;
-min-height:20px;
-background-color:lightgreen;
-line-height:100px;
-text-align:center;
-margin-bottom:10px;
+min-height:150px;
+background-color:transparent;
+margin-top:0px;
+ margin-bottom:0px;
+justify-content:center;
+align-items:flex-end;
 }
 #intro-div{
 width:100%;
 min-height:80px;
-background-color:violet;
+background-color: antiquewhite;
 line-height:50px;
 text-align:center;
 margin-bottom:2px;
@@ -60,7 +66,7 @@ margin-bottom:2px;
 #main-div{
 width:100%;
 min-height:300px;
-background-color:;
+background-color:aquamarine;
 line-height:50px;
 margin-bottom:10px;
 }
@@ -106,6 +112,15 @@ clear:both;
       font-size: 18px;
     }
 
+    .table3 {
+        margin: 10px 0;
+       }
+        .table3 a {
+           color: blue;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+        }
     .footer a {
       display: block;
       color: blue;
@@ -156,24 +171,36 @@ clear:both;
         margin: 10px 0;
       }
     }
-#wrapper-div{
-width:100%;
-margin:auto;
-}
-    table {
+      <style>
+    .table1{
       width: 60%;
       border-collapse: collapse;
       margin: 20px auto;
       font-family: Arial, sans-serif;
     }
-    th, td {
+    .th1{
       border: 1px solid #cccccc;
       padding: 10px;
       text-align: center;
     }
-    th {
+    .th1 {
       background-color: #f2f2f2;
     }
+    caption {
+      font-size: 1.5em;
+      margin: 10px;
+    }
+    .td1{
+     border: 1px solid #cccccc;
+      padding: 10px;
+      text-align: center; 
+    }
+  </style>
+#wrapper-div{
+width:100%;
+margin:auto;
+}
+   
     caption {
       font-size: 1.5em;
       margin: 11px;
@@ -184,13 +211,13 @@ margin:auto;
 <body style="background-color:lightgray";>
 <div id="logo-nav-div">
 <div id="logo-div">
-<a href="index.php">
+<a href="index.html">
 <img src="new103.jpg" width="130px" height="80px"></img>
 </a>
 </div>
 <div id="nav-div">
 <div align="right">
-<table border="0">
+<table class="table3">
 <tr>
  <th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
 <th width="200"><a href="About.html">ABOUT US</a></th>
@@ -203,12 +230,10 @@ margin:auto;
 </div>
 </div>
 <div id="header-banner-div">
-<h1 style="color:red;">GreenTech networking services</b></h1>
+<h1 style="color:red;">about networking</b></h1>
 </div>
 <div id="intro-div">
-  <p>This company is found in <b> Nairobi</b> along Thika super-highway(sub_branches <a href="branches.html">Branches</a>)
-</p>
-<p>we offer goods and services to our clients across the country</p> 
+<p>we offer digital networking tools  and Equipment to our clients across the country and full networking installation services </p> 
 </div>
 <div id="main-div" class="clearfix">
 <div id="sidebar-div">
@@ -220,24 +245,52 @@ margin:auto;
 </div>
 <div id="bodyarea-div">
 <h4 style="color:red;"><b><center>OUR AVAILABLE DEVICES</center></b></h4>
-<h5><center>electronic devices</center></h5>
-<ul type="bullets"><center>
-<li>Laptops</li>
-<li>Desktopes</li>
-<li>Smartphones</li>
-<li>Ethernet Cables</li>
+<center>
+  <table class="table1">
+    <caption>Networking Equipment Price List</caption>
+    <thead>
+      <tr>
+        <th class="th1">Item</th>
+        <th class="th1">Description</th>
+        <th class="th1">Price (USD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td1">Router</td>
+        <td class="td1">Dual-band Wi-Fi 6 router</td>
+        <td class="td1">$89.99</td>
+      </tr>
+      <tr>
+        <td class="td1">Switch</td>
+        <td class="td1">8-Port Gigabit Ethernet Switch</td>
+        <td class="td1">$34.50</td>
+      </tr>
+      <tr>
+        <td class="td1">Access Point</td>
+        <td class="td1">Wireless Access Point (Ubiquiti)</td>
+        <td class="td1">$129.00</td>
+      </tr>
+      <tr>
+        <td class="td1">Patch Cable</td>
+        <td class="td1">Cat6 3ft Ethernet Cable (Pack of 5)</td>
+        <td class="td1">$12.99</td>
+      </tr>
+      <tr>
+        <td class="td1">Firewall Appliance</td>
+        <td class="td1">Small business firewall security device</td>
+        <td class="td1">$219.99</td>
+      </tr>
+    </tbody>
+  </table>
 </center>
-</ul>
-</font>
-</p>
 <h3><div align="center"><b><u>network-tool-kit-set-of-17-ethernet</b></u></h3>
 <p><div align="center">
-<img src="pk.webp"  width="400px" height="80%"></img>
 <img src="634e68b909fb7276a25d6518-network-tool-kit-set-of-17-ethernet.jpg" width="400px" height="80%"></img>
 </p>
 <footer class="footer">
     <div class="footer-column">
-      <h3>Company</h3>
+      <h3>branches</h3>
       <p>Nakuru 
         Kericho
         <p>City, State, ZIP</p>
