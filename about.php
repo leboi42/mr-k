@@ -211,18 +211,18 @@ margin:auto;
 <body style="background-color:lightgray";>
 <div id="logo-nav-div">
 <div id="logo-div">
-<a href="index.html">
-<img src="new103.jpg" width="130px" height="80px"></img>
+<a href="index.php">
+<img src="new103.jpg" width="80px" height="50px"></img>
 </a>
 </div>
 <div id="nav-div">
 <div align="right">
 <table class="table3">
 <tr>
- <th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
-<th width="200"><a href="About.html">ABOUT US</a></th>
-<th width="200"><a href="booking.html">BOOKING</a></th>
-<th width="200"><a href="admin.html">CONTACT US</a></th>
+ <th width="200"><a href="index.php"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
+<th width="200"><a href="About.php">ABOUT US</a></th>
+<th width="200"><a href="booking.php">BOOKING</a></th>
+<th width="200"><a href="admin.php">CONTACT US</a></th>
 </table>
 </div align>
 </table>
@@ -301,10 +301,10 @@ margin:auto;
 
     <div class="footer-column">
       <h3>Quick Links</h3>
-      <th width="200"><a href="index.html">HOME PAGE</a></th>
-<th width="200"><a href="about.html">ABOUT PAGE</a></th>
-<th width="200"><a href="booking.html">BOOKING</a></th>
-<th width="200"><a href="admin.html">CONTACT US</a></th>
+      <th width="200"><a href="index.php">HOME PAGE</a></th>
+<th width="200"><a href="about.php">ABOUT PAGE</a></th>
+<th width="200"><a href="booking.php">BOOKING</a></th>
+<th width="200"><a href="admin.php">CONTACT US</a></th>
     </div>
 
     <div class="footer-column">

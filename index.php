@@ -1,3 +1,31 @@
+<?php
+// DB Connection
+$conn = new mysqli("localhost", "root", "", "networking");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
+
+// Form handling
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (!empty($_POST['comment'])) {
+        $comment = $conn->real_escape_string($_POST['comment']);
+
+        $sql = "INSERT INTO comments (comment) VALUES ('$comment')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "✅ Comment submitted successfully.";
+        } else {
+            echo "❌ Error inserting comment: " . $conn->error;
+        }
+    } else {
+        echo "❗ Comment is empty.";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +43,7 @@ box-sizing:border-box;
 body{
 display:flex;
 flex-direction:column;
-background-color:transparent;
+background-color:aqua;
 text-align:center;
 }
 #logo-div{
@@ -231,13 +259,13 @@ margin-bottom:10px;
 </div>
 <div id="nav-div">
 <div align="left">
-<p class="signup"><a href="welcome.html"><i>Sign up</i></a></p>
+<p class="signup"><a href="welcome.php"><i>Sign up</i></a></p>
 <table class="table3" border="0" >
 <tr>
-<th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
-<th width="200"><a href="about.html">ABOUT US</a></th>
-<th width="200"><a href="booking.html">BOOKING</a></th>
-<th width="200"><a href="admin.html">CONTACT US</a></th>
+<th width="200"><a href="index.php"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th>
+<th width="200"><a href="about.php">ABOUT US</a></th>
+<th width="200"><a href="booking.php">BOOKING</a></th>
+<th width="200"><a href="admin.php">CONTACT US</a></th>
 </table>
 </div align>
 </table>
@@ -322,15 +350,15 @@ margin-bottom:10px;
 <div id="sub-div">
 <h1 style="background-color:aquamarine;"><i><b>clients can submit their questions.We are here for you</b></i><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-400h80v-120h120v-80H520v-120h-80v120H320v80h120v120ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg></h1>
 <br>
-<form action="#" Method="POST">
-<p>
-<textarea cols="40" rows="10" placeholder="ask anything here..." required></textarea>
-</p>
- <!-- Submit Button -->
-        <center>
-        <input type="submit" value="SUBMIT" />
-        </center>
+<form action="" method="POST" autocomplete="off">
+  <p>
+    <textarea name="comment" cols="40" rows="10" placeholder="Ask anything here..." required></textarea>
+  </p>
+  <center>
+    <input type="submit" value="SUBMIT" />
+  </center>
 </form>
+
 </div>
 <footer class="footer">
     <div class="footer-column">
@@ -345,10 +373,10 @@ margin-bottom:10px;
 
     <div class="footer-column">
       <h3>Quick Links</h3>
-      <th width="200"><a href="index.html">HOME PAGE</a></th>
-<th width="200"><a href="about.html">ABOUT PAGE</a></th>
-<th width="200"><a href="booking.html">BOOKING</a></th>
-<th width="200"><a href="admin.html">CONTACT US</a></th>
+      <th width="200"><a href="index.php">HOME PAGE</a></th>
+<th width="200"><a href="about.php">ABOUT PAGE</a></th>
+<th width="200"><a href="booking.php">BOOKING</a></th>
+<th width="200"><a href="admin.php">CONTACT US</a></th>
     </div>
 
     <div class="footer-column">

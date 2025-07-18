@@ -1,14 +1,125 @@
+
+<?php
+// PHP code for handling user registration and login
+
+// --- Database Configuration ---
+// Replace with your actual database credentials
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root'); // Default for XAMPP/WAMP
+define('DB_PASSWORD', '');     // Default for XAMPP/WAMP (empty password)
+define('DB_NAME', 'networking'); // IMPORTANT: Change this to your database name
+
+// Attempt to connect to MySQL database
+$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+// Check connection
+if ($mysqli->connect_error) {
+    die("ERROR: Could not connect. " . $mysqli->connect_error);
+}
+
+// --- Function to sanitize input data ---
+function sanitize_input($data) {
+    global $mysqli;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $mysqli->real_escape_string($data); // Escape special characters for SQL query
+}
+
+// --- Handle Registration Form Submission ---
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
+    $username = sanitize_input($_POST['username']);
+    $email = sanitize_input($_POST['email']);
+    $password = $_POST['password']; // Password is not sanitized with htmlspecialchars here as it will be hashed
+
+    // Validate inputs
+    if (empty($username) || empty($email) || empty($password)) {
+        echo "<script>alert('Please fill in all registration fields.');</script>";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format.');</script>";
+    } elseif (strlen($password) < 6) {
+        echo "<script>alert('Password must be at least 6 characters long.');</script>";
+    } else {
+        // Check if username or email already exists
+        $stmt = $mysqli->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
+        $stmt->bind_param("ss", $username, $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            echo "<script>alert('Username or email already exists.');</script>";
+        } else {
+            // Hash the password
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+            // Insert new user into database
+            $stmt = $mysqli->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $username, $email, $password_hash);
+
+            if ($stmt->execute()) {
+                echo "<script>alert('Registration successful! You can now log in.');</script>";
+                // Optionally redirect to login page or show login form
+            } else {
+                echo "<script>alert('Error: Could not register. Please try again later.');</script>";
+            }
+        }
+        $stmt->close();
+    }
+}
+
+// --- Handle Login Form Submission ---
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    $username_or_email = sanitize_input($_POST['username_or_email']); // This field will accept either username or email
+    $password = $_POST['password'];
+
+    // Validate inputs
+    if (empty($username_or_email) || empty($password)) {
+        echo "<script>alert('Please fill in all login fields.');</script>";
+    } else {
+        // Prepare a select statement to fetch user by username or email
+        $stmt = $mysqli->prepare("SELECT id, username, password_hash FROM users WHERE username = ? OR email = ?");
+        $stmt->bind_param("ss", $username_or_email, $username_or_email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows == 1) {
+            $stmt->bind_result($id, $db_username, $db_password_hash);
+            $stmt->fetch();
+
+            // Verify password
+            if (password_verify($password, $db_password_hash)) {
+                // Password is correct, start a new session
+                session_start();
+                $_SESSION['loggedin'] = true;
+                $_SESSION['id'] = $id;
+                $_SESSION['username'] = $db_username;
+
+                echo "<script>alert('Login successful! Welcome, " . $db_username . "!');</script>";
+                // Redirect to a dashboard or home page
+                // header("location: dashboard.php");
+            } else {
+                echo "<script>alert('Invalid username/email or password.');</script>";
+            }
+        } else {
+            echo "<script>alert('Invalid username/email or password.');</script>";
+        }
+        $stmt->close();
+    }
+}
+
+// Close database connection
+$mysqli->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Login/Registration Page</title>
-    <!-- Importing Poppins font from Google Fonts for a modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Importing Font Awesome for icons (user, envelope, lock, social media) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-"equiv="X-UA-Compatible" content="ie=edge">
+<title>welcome netweb</title>
+<head>
+ <style>
         /* Global styles and reset */
         * {
             margin: 0;
@@ -319,25 +430,23 @@
 </head>
 <body style="background-color: aquamarine;">
     <div class="container" id="mainContainer">
-        <!-- Form Side: Contains both Registration and Login forms -->
         <div class="form-side" id="formSide">
-            <!-- Registration Form Content -->
             <div class="form-content registration-form-content" id="registrationForm">
                 <h2>Registration</h2>
-                <form autocomplete="off">
+                <form action="" method="POST" autocomplete="off">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" placeholder="Username" name="username" required>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" placeholder="Email" name="email" required>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" name="password" required>
                     </div>
-                    <button type="submit" class="btn">Register</button>
+                    <button type="submit" class="btn" name="register">Register</button>
                     <p class="social-text">or register with social platforms</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
@@ -348,36 +457,32 @@
                 </form>
             </div>
 
-            <!-- Login Form Content -->
             <div class="form-content login-form-content" id="loginForm" style="display: none;">
                 <h2>Sign in</h2>
-                <form autocomplete="off">
+                <form action="" method="POST" autocomplete="off">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" placeholder="Username or Email" name="username_or_email" required>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" name="password" required>
                     </div>
                     <div class="links">
                         <a href="#">Forgot Password ?</a>
-                        <a href="#">Signup</a>
-                    </div>
-                    <button type="submit" class="btn">Login</button>
+                        <a href="#" id="signupLink">Signup</a> </div>
+                    <button type="submit" class="btn" name="login">Login</button>
                 </form>
             </div>
         </div>
 
-        <!-- Login Panel: Appears when in registration mode -->
         <div class="panel login-panel" id="loginPanel">
             <h2 id="blink12">Welcome Back!</h2>
-            <p><th width="200"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th></p>
+            <p><th width="200"><a href="index.php"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg></a></th></p>
             <p>To keep connected with us please login with your personal info</p>
             <button type="button" class="btn toggle-btn" id="loginToggleButton">Login</button>
         </div>
 
-        <!-- Register Panel: Appears when in login mode -->
         <div class="panel register-panel" id="registerPanel">
             <h2>Hello, Friend!</h2>
             <p>Enter your personal details and start your journey with us</p>
@@ -437,6 +542,16 @@
             if (registerToggleButton) {
                 registerToggleButton.addEventListener('click', showRegistrationForm);
             }
+            
+            // Also add event listener to the "Signup" link in the login form if it should toggle
+            const signupLink = document.getElementById('signupLink');
+            if (signupLink) {
+                signupLink.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default link behavior
+                    showRegistrationForm();
+                });
+            }
+
 
             // Handle responsive layout changes on window resize
             window.addEventListener('resize', () => {

@@ -107,10 +107,10 @@
 
     <div class="footer-column">
       <h3>Quick Links</h3>
-      <th width="200"><a href="index.html">HOME PAGE</a></th>
-<th width="200"><a href="about.html">ABOUT PAGE</a></th>
-<th width="200"><a href="booking.html">BOOKING</a></th>
-<th width="200"><a href="admin.html">CONTACT US</a></th>
+      <th width="200"><a href="index.php">HOME PAGE</a></th>
+<th width="200"><a href="about.php">ABOUT PAGE</a></th>
+<th width="200"><a href="booking.php">BOOKING</a></th>
+<th width="200"><a href="admin.php">CONTACT US</a></th>
     </div>
     <div class="footer-column">
       <h3>Follow Us</h3>
